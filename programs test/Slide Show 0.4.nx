@@ -1,0 +1,244 @@
+GLOBAL OFY,SCY,FXT
+
+DISPLAY (1,1,0)
+
+ON RASTER CALL FX
+
+NEXTPAGE:
+IF OFY=0 THEN OFY=16 ELSE OFY=0
+BG FILL 0,OFY TO 19,OFY+15 CHAR 0
+ROW=0
+REPEAT
+ READ T$
+ IF ROW=1 THEN ATTR (1) ELSE ATTR (0)
+ IF T$<>"]" THEN TEXT 0,OFY+ROW,T$
+ ROW=ROW+1
+UNTIL T$="]"
+FOR I=0 TO 180
+ FXT=I/180
+ WAIT VBL
+NEXT I
+FXT=0
+SCY=SCY+128
+DO
+ IF TAP THEN GOTO NEXTPAGE
+ WAIT VBL
+LOOP
+
+SUB FX
+ T=MIN(MAX(0,FXT*1.25-RASTER/384),1)
+ F=T*T*(3-2*T)
+ X=SIN(F*PI*2)*8
+ Y=F*128+SCY
+ SCROLL 0,X,Y
+END SUB
+
+
+SLIDES:
+DATA ""
+DATA ""
+DATA ""
+DATA ""
+DATA ""
+DATA ""
+DATA "********************"
+DATA "     LOWRES  NX"
+DATA "********************"
+DATA "]"
+
+DATA "********************"
+DATA "     LOWRES  NX"
+DATA "********************"
+DATA ""
+DATA " - FANTASY CONSOLE"
+DATA ""
+DATA " - PROGRAMMABLE IN"
+DATA "   BASIC"
+DATA ""
+DATA " - AUTHENTIC 8-BIT"
+DATA "   SYSTEM"
+DATA "]"
+
+DATA "********************"
+DATA "  FANTASY  CONSOLE"
+DATA "********************"
+DATA ""
+DATA " - HANDHELD CONSOLE"
+DATA ""
+DATA " - CARTRIDGES"
+DATA ""
+DATA " - TOUCHSCREEN"
+DATA "   (160X128)"
+DATA ""
+DATA " - TWO GAME"
+DATA "   CONTROLLERS"
+DATA ""
+DATA " - KEYBOARD"
+DATA "]"
+
+DATA "********************"
+DATA "        PLAY"
+DATA "********************"
+DATA ""
+DATA " - OPEN NX FILE"
+DATA ""
+DATA " - GAMEPAD:"
+DATA "   CURSOR KEYS"
+DATA "   BUTTON A: Z"
+DATA "   BUTTON B: X"
+DATA "]"
+
+DATA "********************"
+DATA "    HELLO  WORLD"
+DATA "********************"
+DATA ""
+DATA " TEXT FILE:"
+DATA " HELLO WORLD.NX"
+DATA ""
+DATA " - PRINT"
+DATA ""
+DATA " - INPUT"
+DATA "]"
+
+DATA "********************"
+DATA "       ASSETS"
+DATA "********************"
+DATA ""
+DATA " SPRITE FOR"
+DATA " HELLO WORLD"
+DATA ""
+DATA " GRAPHICS BASED ON"
+DATA " 8x8-PIXEL"
+DATA " CHARACTERS"
+DATA ""
+DATA "  CHARACTER"
+DATA "          DESIGNER"
+DATA "]"
+
+DATA "********************"
+DATA "      NX FILES"
+DATA "********************"
+DATA ""
+DATA " INCLUDE:"
+DATA ""
+DATA " - SOURCE CODE"
+DATA ""
+DATA " - ASSETS"
+DATA "   (16 ROM ENTRIES)"
+DATA "]"
+
+DATA "********************"
+DATA "    HELLO  WORLD"
+DATA "********************"
+DATA ""
+DATA " SHOW SPRITE:"
+DATA ""
+DATA " - SPRITE N,X,Y,C"
+DATA "]"
+
+DATA "********************"
+DATA "    HELLO  WORLD"
+DATA "********************"
+DATA ""
+DATA " ANIMATE:"
+DATA ""
+DATA " - DO/LOOP"
+DATA ""
+DATA " - WAIT VBL"
+DATA "]"
+
+DATA "********************"
+DATA "    HELLO  WORLD"
+DATA "********************"
+DATA ""
+DATA " MOVE:"
+DATA ""
+DATA " - GAMEPAD N"
+DATA ""
+DATA " - UP(P)"
+DATA " - DOWN(P)"
+DATA " - LEFT(P)"
+DATA " - RIGHT(P)"
+DATA "]"
+
+DATA "********************"
+DATA "       ASSETS"
+DATA "********************"
+DATA ""
+DATA " BACKGROUND FOR"
+DATA " HELLO WORLD"
+DATA ""
+DATA " MORE CHARACTERS..."
+DATA "]"
+
+DATA "********************"
+DATA "       ASSETS"
+DATA "********************"
+DATA ""
+DATA "  BACKGROUND"
+DATA "          DESIGNER"
+DATA ""
+DATA " - MAPS AND COLORS"
+DATA "]"
+
+DATA "********************"
+DATA "    HELLO  WORLD"
+DATA "********************"
+DATA ""
+DATA " SHOW BACKGROUND:"
+DATA ""
+DATA " - BG N"
+DATA ""
+DATA " - BG COPY X,Y,W,H"
+DATA "   TO X,Y"
+DATA "]"
+
+DATA "********************"
+DATA "   SCREEN  LAYERS"
+DATA "********************"
+DATA ""
+DATA " - NO PIXEL BUFFER"
+DATA ""
+DATA "       +-BACKDROP--+"
+DATA "     +-BG1-------+ I"
+DATA "   +-BG0-------+ I I"
+DATA " +-SPRITES---+ I I I"
+DATA " I           I I I I"
+DATA " I           I I I I"
+DATA " I           I I I-+"
+DATA " I           I I-+"
+DATA " I           I-+"
+DATA " +-----------+"
+DATA "]"
+
+DATA "********************"
+DATA "    HELLO  WORLD"
+DATA "********************"
+DATA ""
+DATA " SCROLL BACKGROUND:"
+DATA ""
+DATA " - DISPLAY BG,X,Y"
+DATA "]"
+
+DATA "********************"
+DATA "       ASSETS"
+DATA "********************"
+DATA ""
+DATA "  BACKGROUND"
+DATA "          DESIGNER"
+DATA ""
+DATA " - PRIORITIES"
+DATA "]"
+
+DATA "********************"
+DATA "        MORE"
+DATA "********************"
+DATA ""
+DATA " DOCS/"
+DATA " INTRODUCTION.TXT"
+DATA ""
+DATA " TWITTER:"
+DATA " @TIMO_INUTILIS"
+DATA "]"
+
+DATA "]"
