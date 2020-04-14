@@ -1,7 +1,7 @@
 # lowres-nx-CHIP
 custom compile. LowRes NX for PocketCHIP.
 
-
+If you want to improve your Pocketchip's performance. Follow this instruction:<https://github.com/ptitSeb/gl4es/blob/master/COMPILE.md>
 
 # Screenshot
 
